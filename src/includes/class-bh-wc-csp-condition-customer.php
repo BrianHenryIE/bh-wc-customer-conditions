@@ -14,8 +14,6 @@
 
 namespace BH_WC_CSP_Condition_Customer\includes;
 
-use BH_WC_CSP_Condition_Customer\BrianHenryIE\WPPB\WPPB_Loader_Interface;
-use BH_WC_CSP_Condition_Customer\BrianHenryIE\WPPB\WPPB_Plugin_Abstract;
 use BH_WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 
 /**
@@ -32,7 +30,7 @@ use BH_WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\W
  * @subpackage BH_WC_CSP_Condition_Customer/includes
  * @author     Brian Henry <BrianHenryIE@gmail.com>
  */
-class BH_WC_CSP_Condition_Customer extends WPPB_Plugin_Abstract {
+class BH_WC_CSP_Condition_Customer {
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -42,18 +40,8 @@ class BH_WC_CSP_Condition_Customer extends WPPB_Plugin_Abstract {
 	 * the frontend-facing side of the site.
 	 *
 	 * @since    1.0.0
-	 *
-	 * @param WPPB_Loader_Interface $loader The WPPB class which adds the hooks and filters to WordPress.
 	 */
-	public function __construct( $loader ) {
-		if ( defined( 'BH_WC_CSP_CONDITION_CUSTOMER_VERSION' ) ) {
-			$version = BH_WC_CSP_CONDITION_CUSTOMER_VERSION;
-		} else {
-			$version = '1.0.0';
-		}
-		$plugin_name = 'bh-wc-csp-condition-customer';
-
-		parent::__construct( $loader, $plugin_name, $version );
+	public function __construct() {
 
 		$this->set_locale();
 		$this->define_wcsp_hooks();
@@ -72,7 +60,7 @@ class BH_WC_CSP_Condition_Customer extends WPPB_Plugin_Abstract {
 
 		$plugin_i18n = new I18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		add_action( 'plugins_loaded', array( $plugin_i18n, 'load_plugin_textdomain' ) );
 
 	}
 
@@ -85,7 +73,7 @@ class BH_WC_CSP_Condition_Customer extends WPPB_Plugin_Abstract {
 
 		$plugin_wc_csp_conditions = new WC_CSP_Conditions();
 
-		$this->loader->add_filter( 'woocommerce_csp_conditions', $plugin_wc_csp_conditions, 'add_conditions' );
+		add_filter( 'woocommerce_csp_conditions', array( $plugin_wc_csp_conditions, 'add_conditions' ) );
 
 	}
 

@@ -26,7 +26,6 @@
 
 namespace BH_WC_CSP_Condition_Customer;
 
-use BH_WC_CSP_Condition_Customer\BrianHenryIE\WPPB\WPPB_Loader;
 use BH_WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer;
 
 // If this file is called directly, abort.
@@ -54,8 +53,7 @@ define( 'BH_WC_CSP_CONDITION_CUSTOMER_VERSION', '1.0.1' );
  */
 function instantiate_bh_wc_csp_condition_customer() {
 
-	$loader = new WPPB_Loader();
-	$plugin = new BH_WC_CSP_Condition_Customer( $loader );
+	$plugin = new BH_WC_CSP_Condition_Customer();
 
 	return $plugin;
 }

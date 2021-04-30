@@ -1,7 +1,6 @@
 <?php
 namespace BH_WC_CSP_Condition_Customer\includes;
 
-use BH_WC_CSP_Condition_Customer\BrianHenryIE\WPPB\WPPB_Loader_Interface;
 use Codeception\Stub\Expected;
 
 class BH_WC_CSP_Condition_Customer_Test extends \Codeception\Test\Unit {
@@ -13,6 +12,8 @@ class BH_WC_CSP_Condition_Customer_Test extends \Codeception\Test\Unit {
 	 * @throws \Exception
 	 */
 	public function test_set_locale() {
+
+
 
 		$mock_loader = $this->makeEmpty(
 			WPPB_Loader_Interface::class,
