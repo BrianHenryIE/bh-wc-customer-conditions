@@ -7,6 +7,11 @@ namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shippin
 
 use WC_Order;
 
+/**
+ * Class WC_CSP_Condition_Customer_WPUnit_Test
+ * @package BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments
+ * @coversDefaultClass WC_CSP_Condition_Customer
+ */
 class WC_CSP_Condition_Customer_WPUnit_Test extends \Codeception\TestCase\WPTestCase {
 
 
@@ -54,7 +59,6 @@ class WC_CSP_Condition_Customer_WPUnit_Test extends \Codeception\TestCase\WPTest
 
 		$this->assertEquals( $billing_email, $customer->get_billing_email() );
 
-
 	}
 
 
@@ -92,7 +96,7 @@ class WC_CSP_Condition_Customer_WPUnit_Test extends \Codeception\TestCase\WPTest
 		);
 		$customer_orders_completed = wc_get_orders(
 			array(
-					'status' => 'wc-completed',
+                'status' => 'wc-completed',
 				'billing_email'  => $email_address,
 				'limit' => -1, // Assumes most users without accounts have somewhat small numbers of past orders.
 			)

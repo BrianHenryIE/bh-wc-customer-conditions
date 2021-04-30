@@ -12,6 +12,7 @@ use BrianHenryIE\WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_
 
 /**
  * Class Develop_Test
+ * @coversNothing
  */
 class BH_WC_CSP_Condition_Customer_Develop_Test extends \Codeception\TestCase\WPTestCase {
 

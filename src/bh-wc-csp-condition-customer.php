@@ -13,11 +13,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Customer Conditions for WooCommerce Conditional Shipping and Payments
- * Plugin URI:        http://github.com/username/bh-wc-csp-condition-customer/
+ * Plugin URI:        http://github.com/BrianHenryIE/bh-wc-csp-condition-customer/
  * Description:       Use customer is-paying-customer, order count, and total spend as restrictions.
  * Version:           1.0.1
  * Author:            Brian Henry
- * Author URI:        http://example.com/
+ * Author URI:        http://BrianHenryIE.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       bh-wc-csp-condition-customer

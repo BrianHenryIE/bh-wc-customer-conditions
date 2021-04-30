@@ -12,6 +12,7 @@ use BrianHenryIE\WC_CSP_Condition_Customer\Includes\BH_WC_CSP_Condition_Customer
 
 /**
  * Verifies the plugin has been instantiated and added to PHP's $GLOBALS variable.
+ * @coversNothing
  */
 class Plugin_Develop_Test extends \Codeception\TestCase\WPTestCase {
 
