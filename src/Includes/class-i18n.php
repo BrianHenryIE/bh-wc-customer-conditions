@@ -12,7 +12,7 @@
  * @subpackage BrianHenryIE\WC_CSP_Condition_Customer/includes
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
 
 /**
  * Define the internationalization functionality.

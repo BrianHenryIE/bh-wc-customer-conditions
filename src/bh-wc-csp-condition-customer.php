@@ -26,7 +26,7 @@
 
 namespace BrianHenryIE\WC_CSP_Condition_Customer;
 
-use BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer;
+use BrianHenryIE\WC_CSP_Condition_Customer\Includes\BH_WC_CSP_Condition_Customer;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

@@ -6,7 +6,7 @@
  * @author  Brian Henry <BrianHenryIE@gmail.com>
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
 
 /**
  * Class I18n_Test

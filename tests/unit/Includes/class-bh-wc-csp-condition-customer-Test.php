@@ -1,5 +1,5 @@
 <?php
-namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
 
 use BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 use Codeception\Stub\Expected;

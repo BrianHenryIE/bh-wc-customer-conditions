@@ -12,7 +12,7 @@
  * @subpackage BrianHenryIE\WC_CSP_Condition_Customer/includes
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
 
 use BrianHenryIE\WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 

@@ -1,23 +1,24 @@
 <?php
 
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
 
 /**
-
  *
  * Class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test
- * @package BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments
+ * @package BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments
+ *
+ * @coversDefaultClass @covers \BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Condition_Customer_Order_Count
  */
 class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test extends \Codeception\TestCase\WPTestCase {
 
 	/**
-	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::get_condition_resolution
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Condition_Customer_Order_Count::get_condition_resolution
 	 */
 
 
 	/**
-	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::check_condition
+	 * @covers ::check_condition
 	 */
 	public function test_condition_zero_orders_minimum_one() {
 
@@ -64,12 +65,12 @@ class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test extends \Codeception\Tes
 
 
 	/**
-	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::process_admin_fields
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Condition_Customer_Order_Count::process_admin_fields
 	 */
 
 
 	/**
-	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::get_admin_fields_html
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Condition_Customer_Order_Count::get_admin_fields_html
 	 */
 
 }

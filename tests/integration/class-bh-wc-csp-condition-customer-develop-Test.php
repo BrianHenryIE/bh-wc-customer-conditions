@@ -8,7 +8,7 @@
 
 namespace BrianHenryIE\WC_CSP_Condition_Customer;
 
-use BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer;
+use BrianHenryIE\WC_CSP_Condition_Customer\Includes\BH_WC_CSP_Condition_Customer;
 
 /**
  * Verifies the plugin has been instantiated and added to PHP's $GLOBALS variable.

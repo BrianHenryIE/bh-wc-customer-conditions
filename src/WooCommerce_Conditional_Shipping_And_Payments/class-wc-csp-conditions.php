@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
 
 class WC_CSP_Conditions {
 
