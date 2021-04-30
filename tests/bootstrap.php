@@ -12,3 +12,5 @@ $GLOBALS['plugin_basename']    = $plugin_name . '/' . $plugin_name_php;
 $GLOBALS['wordpress_root_dir'] = $project_root_dir . '/vendor/wordpress/wordpress/src';
 
 
+define( 'WP_CONTENT_DIR', '/Users/brianhenry/Sites/bh-wc-csp-condition-customer/wp-content' );
+define( 'WP_PLUGIN_DIR', '/Users/brianhenry/Sites/bh-wc-csp-condition-customer/wp-content/plugins' );
