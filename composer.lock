@@ -7,29 +7,6 @@
     "content-hash": "6043c199f4c69efc1a562e74f1bb7d58",
     "packages": [
         {
-            "name": "brianhenryie/wppb-lib",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/BrianHenryIE/WPPB-lib",
-                "reference": "c317c34fd65dd61ee025089ee77b0870ac389c93"
-            },
-            "require": {
-                "php": ">=5.6"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "BrianHenryIE\\WPPB\\": "src"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Common files from WordPress Plugin Boilerplate",
-            "time": "2020-12-07T00:31:42+00:00"
-        },
-        {
             "name": "pablo-sg-pacheco/wp-namespace-autoloader",
             "version": "dev-master",
             "source": {
