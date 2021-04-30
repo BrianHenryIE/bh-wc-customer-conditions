@@ -63,4 +63,3 @@ function instantiate_bh_wc_csp_condition_customer() {
  * admin-specific hooks, and frontend-facing site hooks.
  */
 $GLOBALS['bh_wc_csp_condition_customer'] = $bh_wc_csp_condition_customer = instantiate_bh_wc_csp_condition_customer();
-$bh_wc_csp_condition_customer->run();

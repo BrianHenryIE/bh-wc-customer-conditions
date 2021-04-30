@@ -1,78 +1,54 @@
 <?php
 namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
 
+use BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 use Codeception\Stub\Expected;
+use WP_Mock\Matcher\AnyInstance;
 
+/**
+ * Class BH_WC_CSP_Condition_Customer_Test
+ * @package BrianHenryIE\WC_CSP_Condition_Customer\Includes
+ * @coversDefaultClass \BrianHenryIE\WC_CSP_Condition_Customer\Includes\BH_WC_CSP_Condition_Customer
+ */
 class BH_WC_CSP_Condition_Customer_Test extends \Codeception\Test\Unit {
+
+    protected function _before() {
+        \WP_Mock::setUp();
+    }
+
+    protected function _tearDown() {
+        parent::_tearDown();
+        \WP_Mock::tearDown();
+    }
 
 	/**
 	 *
-	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::set_locale
+	 * @covers ::set_locale
 	 *
 	 * @throws \Exception
 	 */
 	public function test_set_locale() {
 
+        \WP_Mock::expectActionAdded(
+            'plugins_loaded',
+            array( new AnyInstance( I18n::class ), 'load_plugin_textdomain' )
+        );
 
-
-		$mock_loader = $this->makeEmpty(
-			WPPB_Loader_Interface::class,
-			array(
-				'add_action' => Expected::once(),
-			)
-		);
-
-		new BH_WC_CSP_Condition_Customer( $mock_loader );
+		new BH_WC_CSP_Condition_Customer(  );
 	}
 
 	/**
-	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::define_wcsp_hooks
+	 * @covers ::define_wcsp_hooks
 	 *
 	 */
-	public function test_construct() {
+	public function test_wcsp_hooks() {
 
-		$mock_loader = $this->makeEmpty(
-			WPPB_Loader_Interface::class,
-			array(
-				'add_filter' => Expected::once(),
-			)
-		);
+        \WP_Mock::expectFilterAdded(
+            'woocommerce_csp_conditions',
+            array( new AnyInstance( WC_CSP_Conditions::class ), 'add_conditions' )
+        );
 
-		new BH_WC_CSP_Condition_Customer( $mock_loader );
-
-	}
-
-	public function test_run() {
-
-		$mock_loader = $this->makeEmpty(
-			WPPB_Loader_Interface::class,
-			array(
-				'run' => Expected::once(),
-			)
-		);
-
-		$sut = new BH_WC_CSP_Condition_Customer( $mock_loader );
-
-		$sut->run();
-
-	}
-
-	/**
-	 * Test the loader instance variable is correctly set by the constructor.
-	 *
-	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::__construct
-	 *
-	 * @throws \Exception
-	 */
-	public function test_loader() {
-
-		$mock_loader = $this->makeEmpty( WPPB_Loader_Interface::class );
-
-		$sut = new BH_WC_CSP_Condition_Customer( $mock_loader );
-
-		$loader = $sut->get_loader();
-
-		$this->assertSame( $mock_loader, $loader );
+		new BH_WC_CSP_Condition_Customer(  );
 
 	}
 
