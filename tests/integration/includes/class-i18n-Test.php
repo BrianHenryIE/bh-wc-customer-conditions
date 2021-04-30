@@ -2,18 +2,18 @@
 /**
  * Tests for I18n. Tests load_plugin_textdomain.
  *
- * @package BH_WC_CSP_Condition_Customer
+ * @package BrianHenryIE\WC_CSP_Condition_Customer
  * @author  Brian Henry <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
 
 /**
- * Class BH_WC_CSP_Condition_Customer_Test
+ * Class BrianHenryIE\WC_CSP_Condition_Customer_Test
  *
  * @see I18n
  */
-class BH_WC_CSP_Condition_Customer_I18n_Test extends \Codeception\TestCase\WPTestCase {
+class I18n_Integration_Test extends \Codeception\TestCase\WPTestCase {
 
 	/**
 	 * AFAICT, this will fail until a translation has been added.

@@ -1,23 +1,23 @@
 <?php
 
 
-namespace BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
 
 /**
 
  *
  * Class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test
- * @package BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments
+ * @package BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments
  */
 class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test extends \Codeception\TestCase\WPTestCase {
 
 	/**
-	 * @covers BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::get_condition_resolution
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::get_condition_resolution
 	 */
 
 
 	/**
-	 * @covers BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::check_condition
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::check_condition
 	 */
 	public function test_condition_zero_orders_minimum_one() {
 
@@ -64,12 +64,12 @@ class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test extends \Codeception\Tes
 
 
 	/**
-	 * @covers BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::process_admin_fields
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::process_admin_fields
 	 */
 
 
 	/**
-	 * @covers BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::get_admin_fields_html
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count::get_admin_fields_html
 	 */
 
 }

@@ -1,14 +1,14 @@
 <?php
 /**
- * Tests for BH_WC_CSP_Condition_Customer main setup class. Tests the actions are correctly added.
+ * Tests for BrianHenryIE\WC_CSP_Condition_Customer main setup class. Tests the actions are correctly added.
  *
- * @package BH_WC_CSP_Condition_Customer
+ * @package BrianHenryIE\WC_CSP_Condition_Customer
  * @author  Brian Henry <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
 
-use BH_WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
+use BrianHenryIE\WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 
 /**
  * Class Develop_Test

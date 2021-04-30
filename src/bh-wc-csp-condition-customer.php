@@ -9,7 +9,7 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           BH_WC_CSP_Condition_Customer
+ * @package           BrianHenryIE\WC_CSP_Condition_Customer
  *
  * @wordpress-plugin
  * Plugin Name:       Customer Conditions for WooCommerce Conditional Shipping and Payments
@@ -24,9 +24,9 @@
  * Domain Path:       /languages
  */
 
-namespace BH_WC_CSP_Condition_Customer;
+namespace BrianHenryIE\WC_CSP_Condition_Customer;
 
-use BH_WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer;
+use BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

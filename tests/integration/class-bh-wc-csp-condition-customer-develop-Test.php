@@ -2,13 +2,13 @@
 /**
  * Class Plugin_Test. Tests the root plugin setup.
  *
- * @package BH_WC_CSP_Condition_Customer
+ * @package BrianHenryIE\WC_CSP_Condition_Customer
  * @author     Brian Henry <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_CSP_Condition_Customer;
+namespace BrianHenryIE\WC_CSP_Condition_Customer;
 
-use BH_WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer;
+use BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer;
 
 /**
  * Verifies the plugin has been instantiated and added to PHP's $GLOBALS variable.

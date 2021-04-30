@@ -2,11 +2,11 @@
 /**
  * Tests for I18n. Tests load_plugin_textdomain.
  *
- * @package BH_WC_CSP_Condition_Customer
+ * @package BrianHenryIE\WC_CSP_Condition_Customer
  * @author  Brian Henry <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
 
 /**
  * Class I18n_Test

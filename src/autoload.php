@@ -6,14 +6,14 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           BH_WC_CSP_Condition_Customer
+ * @package           BrianHenryIE\WC_CSP_Condition_Customer
  *
  * @see https://github.com/pablo-sg-pacheco/wp-namespace-autoloader/
  */
 
-namespace BH_WC_CSP_Condition_Customer;
+namespace BrianHenryIE\WC_CSP_Condition_Customer;
 
-use BH_WC_CSP_Condition_Customer\Pablo_Pacheco\WP_Namespace_Autoloader\WP_Namespace_Autoloader;
+use BrianHenryIE\WC_CSP_Condition_Customer\Pablo_Pacheco\WP_Namespace_Autoloader\WP_Namespace_Autoloader;
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'autoload.php';
 

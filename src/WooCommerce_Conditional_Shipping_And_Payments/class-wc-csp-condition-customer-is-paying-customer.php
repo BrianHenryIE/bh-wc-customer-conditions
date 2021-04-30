@@ -3,7 +3,7 @@
  * is_paying_customer()
  */
 
-namespace BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
 
 use WC_CSP_Condition;
 

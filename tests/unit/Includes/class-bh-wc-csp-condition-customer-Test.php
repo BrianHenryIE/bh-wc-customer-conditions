@@ -1,5 +1,5 @@
 <?php
-namespace BH_WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
 
 use Codeception\Stub\Expected;
 
@@ -7,7 +7,7 @@ class BH_WC_CSP_Condition_Customer_Test extends \Codeception\Test\Unit {
 
 	/**
 	 *
-	 * @covers BH_WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::set_locale
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::set_locale
 	 *
 	 * @throws \Exception
 	 */
@@ -26,7 +26,7 @@ class BH_WC_CSP_Condition_Customer_Test extends \Codeception\Test\Unit {
 	}
 
 	/**
-	 * @covers BH_WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::define_wcsp_hooks
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::define_wcsp_hooks
 	 *
 	 */
 	public function test_construct() {
@@ -60,7 +60,7 @@ class BH_WC_CSP_Condition_Customer_Test extends \Codeception\Test\Unit {
 	/**
 	 * Test the loader instance variable is correctly set by the constructor.
 	 *
-	 * @covers BH_WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::__construct
+	 * @covers BrianHenryIE\WC_CSP_Condition_Customer\includes\BH_WC_CSP_Condition_Customer::__construct
 	 *
 	 * @throws \Exception
 	 */

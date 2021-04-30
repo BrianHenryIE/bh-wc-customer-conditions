@@ -1,6 +1,6 @@
 <?php
 
-namespace BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
 
 class WC_CSP_Conditions_Test extends \Codeception\Test\Unit {
 
@@ -15,7 +15,7 @@ class WC_CSP_Conditions_Test extends \Codeception\Test\Unit {
 
 		$this->assertIsString( $result[0] );
 
-		$this->assertContains( 'BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count', $result );
+		$this->assertContains( 'BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments\WC_CSP_Condition_Customer_Order_Count', $result );
 
 	}
 

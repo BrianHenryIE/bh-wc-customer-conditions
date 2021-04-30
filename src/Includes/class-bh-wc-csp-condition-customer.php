@@ -8,13 +8,13 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    BH_WC_CSP_Condition_Customer
- * @subpackage BH_WC_CSP_Condition_Customer/includes
+ * @package    BrianHenryIE\WC_CSP_Condition_Customer
+ * @subpackage BrianHenryIE\WC_CSP_Condition_Customer/includes
  */
 
-namespace BH_WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
 
-use BH_WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
+use BrianHenryIE\WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 
 /**
  * The core plugin class.
@@ -26,8 +26,8 @@ use BH_WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\W
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    BH_WC_CSP_Condition_Customer
- * @subpackage BH_WC_CSP_Condition_Customer/includes
+ * @package    BrianHenryIE\WC_CSP_Condition_Customer
+ * @subpackage BrianHenryIE\WC_CSP_Condition_Customer/includes
  * @author     Brian Henry <BrianHenryIE@gmail.com>
  */
 class BH_WC_CSP_Condition_Customer {

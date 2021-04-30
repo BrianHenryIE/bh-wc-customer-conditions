@@ -8,11 +8,11 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    BH_WC_CSP_Condition_Customer
- * @subpackage BH_WC_CSP_Condition_Customer/includes
+ * @package    BrianHenryIE\WC_CSP_Condition_Customer
+ * @subpackage BrianHenryIE\WC_CSP_Condition_Customer/includes
  */
 
-namespace BH_WC_CSP_Condition_Customer\includes;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\includes;
 
 /**
  * Define the internationalization functionality.
@@ -21,8 +21,8 @@ namespace BH_WC_CSP_Condition_Customer\includes;
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    BH_WC_CSP_Condition_Customer
- * @subpackage BH_WC_CSP_Condition_Customer/includes
+ * @package    BrianHenryIE\WC_CSP_Condition_Customer
+ * @subpackage BrianHenryIE\WC_CSP_Condition_Customer/includes
  * @author     Brian Henry <BrianHenryIE@gmail.com>
  */
 class I18n {

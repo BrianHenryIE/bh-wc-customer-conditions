@@ -8,7 +8,7 @@
  * TODO: Need to refresh checkout when billing address is added. i.e. the javascript that reloads when different postage methods/ country is changed, should fire when the email is entered so everything is refreshed and this is invoked
  */
 
-namespace BH_WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
+namespace BrianHenryIE\WC_CSP_Condition_Customer\woocommerce_conditional_shipping_and_payments;
 
 use WC_Customer;
 use WC_Order;
