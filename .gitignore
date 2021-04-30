@@ -42,8 +42,8 @@ cache
 
 
 wordpress
-src/vendor/
-src/dependencies/
+src/strauss/
+
 wp-content/
 
 scratch
