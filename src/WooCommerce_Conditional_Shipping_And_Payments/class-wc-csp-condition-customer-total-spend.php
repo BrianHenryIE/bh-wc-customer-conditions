@@ -10,7 +10,7 @@ use WC_CSP_Condition;
 /**
  *
  */
-class WC_CSP_Condition_Customer_Total_Spend extends WC_CSP_Condition_Customer_Abstract {
+class WC_CSP_Condition_Customer_Total_Spend extends WC_CSP_Condition {
 
 	/**
 	 * Constructor.
@@ -18,31 +18,21 @@ class WC_CSP_Condition_Customer_Total_Spend extends WC_CSP_Condition_Customer_Ab
 	public function __construct() {
 		$this->id                             = 'customer_total_spend';
 		$this->title                          = __( 'Customer Total Spend', 'bh-wc-csp-condition-customer' );
-		$this->supported_global_restrictions  = array( 'shipping_methods', 'shipping_countries' );
-		$this->supported_product_restrictions = array( 'shipping_methods', 'shipping_countries' );
+		$this->supported_product_restrictions = array( 'payment_gateways', 'shipping_methods', 'shipping_countries' );
+		$this->supported_global_restrictions  = array( 'payment_gateways', 'shipping_methods', 'shipping_countries' );
 	}
 
 	/**
 	 * Return condition field-specific resolution message which is combined along with others into a single restriction "resolution message".
 	 *
-	 * @param  array $data  Condition field data.
-	 * @param  array $args  Optional arguments passed by restriction.
-	 * @return string|false
+	 * @param  array{ value: float, modifier: string } $data  Condition field data.
+	 * @param  array                                   $args  Optional arguments passed by restriction.
+	 *
+	 * @return string
 	 */
-	public function get_condition_resolution( $data, $args ) {
+	public function get_condition_resolution( $data, $args ): string {
 
-		// Empty conditions always return false (not evaluated).
-		if ( ! isset( $data['value'] ) || $data['value'] === '' ) {
-			return false;
-		}
-
-		$message = false;
-
-		if ( $this->modifier_is( $data['modifier'], array( 'min' ) ) ) {
-			$message = sprintf( __( 'decrease your cart total below %s', 'bh-wc-csp-condition-customer' ), wc_price( $data['value'] ) );
-		} elseif ( $this->modifier_is( $data['modifier'], array( 'max' ) ) ) {
-			$message = sprintf( __( 'increase your cart total above %s', 'bh-wc-csp-condition-customer' ), wc_price( $data['value'] ) );
-		}
+		$message = __( 'contact support', 'bh-wc-csp-condition-customer' );
 
 		return $message;
 	}
@@ -50,26 +40,24 @@ class WC_CSP_Condition_Customer_Total_Spend extends WC_CSP_Condition_Customer_Ab
 	/**
 	 * Evaluate if the condition is in effect or not.
 	 *
-	 * @param  string $data  Condition field data.
-	 * @param  array  $args  Optional arguments passed by restrictions.
+	 * @param  array $data{ value: float, modifier: string }  Condition field data.
+	 * @param  array $args  Optional arguments passed by restrictions.
 	 * @return boolean
 	 */
-	public function check_condition( $data, $args ) {
+	public function check_condition( $data, $_args ): bool {
 
 		// Empty conditions always apply (not evaluated).
-		if ( ! isset( $data['value'] ) || $data['value'] === '' ) {
+		if ( empty( $data['value'] ) ) {
 			return true;
 		}
 
-		$cart_contents_total = WC_CSP_Core_Compatibility::is_wc_version_gte( '3.2' ) ? WC()->cart->get_cart_contents_total() : WC()->cart->cart_contents_total;
-		$cart_contents_taxes = WC_CSP_Core_Compatibility::is_wc_version_gte( '3.2' ) ? WC()->cart->get_cart_contents_taxes() : WC()->cart->taxes;
+		$wc_customer = new WC_CSP_Condition_Customer();
 
-		$cart_contents_tax = apply_filters( 'woocommerce_csp_cart_total_condition_incl_tax', true, $data, $args ) ? array_sum( $cart_contents_taxes ) : 0.0;
-		$cart_total        = $cart_contents_total + $cart_contents_tax;
+		$customer_lifetime_total_spend = $wc_customer->get_total_spent();
 
-		if ( $this->modifier_is( $data['modifier'], array( 'min' ) ) && wc_format_decimal( $data['value'] ) <= $cart_total ) {
+		if ( $this->modifier_is( $data['modifier'], array( 'min' ) ) && $data['value'] <= $customer_lifetime_total_spend ) {
 			return true;
-		} elseif ( $this->modifier_is( $data['modifier'], array( 'max' ) ) && wc_format_decimal( $data['value'] ) > $cart_total ) {
+		} elseif ( $this->modifier_is( $data['modifier'], array( 'max' ) ) && $data['value'] > $customer_lifetime_total_spend ) {
 			return true;
 		}
 
@@ -79,36 +67,34 @@ class WC_CSP_Condition_Customer_Total_Spend extends WC_CSP_Condition_Customer_Ab
 	/**
 	 * Validate, process and return condition fields.
 	 *
-	 * @param  array $posted_condition_data
-	 * @return array
+	 * @param  array{ value: string, modifier: string } $posted_condition_data
+	 * @return array{ value: float, modifier: string }
 	 */
-	public function process_admin_fields( $posted_condition_data ) {
+	public function process_admin_fields( $posted_condition_data ): ?array {
 
 		$processed_condition_data = array();
 
 		if ( isset( $posted_condition_data['value'] ) ) {
 
-			$processed_condition_data['condition_id'] = $this->id;
-			$processed_condition_data['value']        = $posted_condition_data['value'] !== '0' ? wc_format_decimal( stripslashes( $posted_condition_data['value'] ), '' ) : 0;
-			$processed_condition_data['modifier']     = stripslashes( $posted_condition_data['modifier'] );
+			$processed_condition_data['value']    = '0' !== $posted_condition_data['value'] ? wc_format_decimal( stripslashes( $posted_condition_data['value'] ), '' ) : 0;
+			$processed_condition_data['modifier'] = stripslashes( $posted_condition_data['modifier'] );
 
-			if ( $processed_condition_data['value'] > 0 || $processed_condition_data['value'] === 0 ) {
+			if ( $processed_condition_data['value'] >= 0 ) {
 				return $processed_condition_data;
 			}
 		}
 
-		return false;
+		return null;
 	}
 
 	/**
-	 * Get cart total conditions content for admin restriction metaboxes.
+	 * Print conditions config content for admin restriction metaboxes.
 	 *
-	 * @param  int   $index
-	 * @param  int   $condition_ndex
-	 * @param  array $condition_data
-	 * @return str
+	 * @param  int                                     $index
+	 * @param  int                                     $condition_index
+	 * @param  array{ value: float, modifier: string } $condition_data
 	 */
-	public function get_admin_fields_html( $index, $condition_index, $condition_data ) {
+	public function get_admin_fields_html( $index, $condition_index, $condition_data ): void {
 
 		$modifier   = '';
 		$cart_total = '';

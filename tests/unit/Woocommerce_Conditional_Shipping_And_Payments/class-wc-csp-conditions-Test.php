@@ -21,4 +21,19 @@ class WC_CSP_Conditions_Test extends \Codeception\Test\Unit {
 
     }
 
+    /**
+     * @covers ::add_conditions
+     */
+    public function test_add_total_spend_condition() {
+
+        $sut = new WC_CSP_Conditions();
+
+        $result = $sut->add_conditions( array() );
+
+        $this->assertIsString( $result[0] );
+
+        $this->assertContains( 'BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Condition_Customer_Total_Spend', $result );
+
+    }
+
 }
