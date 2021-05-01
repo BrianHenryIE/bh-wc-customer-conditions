@@ -45,6 +45,7 @@ class BH_WC_CSP_Condition_Customer {
 
 		$this->set_locale();
 		$this->define_wcsp_hooks();
+		$this->define_checkout_hooks();
 
 	}
 
@@ -77,4 +78,11 @@ class BH_WC_CSP_Condition_Customer {
 
 	}
 
+
+	protected function define_checkout_hooks(): void {
+
+		$checkout = new Checkout();
+
+		add_filter( 'woocommerce_billing_fields', array( $checkout, 'add_update_totals_class_to_billing_email' ), 10, 2 );
+	}
 }

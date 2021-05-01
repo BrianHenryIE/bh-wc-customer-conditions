@@ -52,4 +52,19 @@ class BH_WC_CSP_Condition_Customer_Test extends \Codeception\Test\Unit {
 
 	}
 
+    /**
+     * @covers ::define_checkout_hooks
+     */
+	public function test_checkout_hooks() {
+
+        \WP_Mock::expectFilterAdded(
+            'woocommerce_billing_fields',
+            array( new AnyInstance( Checkout::class ), 'add_update_totals_class_to_billing_email' ),
+            10,
+            2
+        );
+
+        new BH_WC_CSP_Condition_Customer(  );
+
+    }
 }
