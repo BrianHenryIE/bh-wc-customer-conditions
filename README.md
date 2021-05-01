@@ -1,31 +1,24 @@
-[![WordPress tested 5.5](https://img.shields.io/badge/WordPress-v5.5%20tested-0073aa.svg)](#) [![PHPUnit ](.github/coverage.svg)](https://brianhenryie.github.io/bh-wc-csp-condition-customer/)
+[![WordPress tested 5.7](https://img.shields.io/badge/WordPress-v5.5%20tested-0073aa.svg)](#) [![PHPUnit ](.github/coverage.svg)](https://brianhenryie.github.io/bh-wc-csp-condition-ip-address/)
 
 # Customer Conditions for WooCommerce Conditional Shipping and Payments
 
-Incomplete: shared to help someone.
-
-
-[WooCommerce Conditional Shipping and Payments](https://woocommerce.com/products/conditional-shipping-and-payments/)
+Adds features to [WooCommerce Conditional Shipping and Payments](https://woocommerce.com/products/conditional-shipping-and-payments/).
 
 Enables using WC_Customer properties 
-* bool: is_paying_customer()
-* int: get_order_count()
-* float: get_total_spend() 
+* is_paying_customer()
+* get_order_count()
+* get_total_spend() 
 
-e.g. hide cc gateway if order count is less than 2/
+e.g. allow Venmo payments for customers with over 5 orders and £500 already spent in the store.
+
+![Example](./assets/screenshot-1.png "BH WC CSP Condition Customer screenshot")
+
 
 ## TODO
 
-* Reload gateways after billing email entered
-* is paying customer
-* total spend
 * Arbitrary meta key + regex.
-
-### Recommended 
-
-https://wordpress.org/plugins/wc-map-guest-orders-and-downloads/
-
-
+* Investigate integration with: [WC Map Guest Orders and Downloads](https://wordpress.org/plugins/wc-map-guest-orders-and-downloads/)
+* Investigate integration with: [pmgarman/wc-customer-order-index](https://github.com/pmgarman/wc-customer-order-index)
 
 ## Contributing
 

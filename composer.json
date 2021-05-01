@@ -15,6 +15,9 @@
         "process-timeout": 0,
         "sort-packages": true
     },
+    "autoload-dev": {
+        "classmap": ["tests"]
+    },
     "repositories": [
         {
             "type": "path",
@@ -90,6 +93,7 @@
             "classmap_prefix": "BH_WC_CSP_Condition_Customer_"
         },
         "symlinks": {
+            "wp-content": "wordpress/wp-content",
             "src": "wp-content/plugins/bh-wc-csp-condition-customer"
         },
         "phpstorm": {
@@ -132,7 +136,7 @@
         "coverage-tests": [
             "vendor/bin/codecept run unit --coverage unit.cov",
             "vendor/bin/codecept run wpunit --coverage wpunit.cov",
-            "vendor/bin/phpcov merge --clover tests/_output/clover.xml --html tests/_output/html tests/_output --text;",
+            "vendor/bin/phpcov merge --clover tests/_output/clover.xml --html tests/_output/html tests/_output;",
             "open tests/_output/html/index.html"
         ],
         "create-plugin-archive": [
