@@ -15,7 +15,7 @@ class WC_CSP_Conditions {
 	 */
 	public function add_conditions( $conditions ): array {
 
-		// $conditions[] = WC_CSP_Condition_Customer_Is_Paying_Customer::class;
+		$conditions[] = WC_CSP_Condition_Customer_Is_Paying_Customer::class;
 		$conditions[] = WC_CSP_Condition_Customer_Order_Count::class;
 		// $conditions[] = WC_CSP_Condition_Customer_Total_Spend::class;
 
