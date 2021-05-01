@@ -14,7 +14,8 @@
 
 namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
 
-use BrianHenryIE\WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
+use BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce\Checkout;
+use BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 
 /**
  * The core plugin class.
@@ -44,6 +45,7 @@ class BH_WC_CSP_Condition_Customer {
 	public function __construct() {
 
 		$this->set_locale();
+
 		$this->define_wcsp_hooks();
 		$this->define_checkout_hooks();
 
@@ -57,7 +59,7 @@ class BH_WC_CSP_Condition_Customer {
 	 *
 	 * @since    1.0.0
 	 */
-	protected function set_locale() {
+	protected function set_locale(): void {
 
 		$plugin_i18n = new I18n();
 
@@ -70,7 +72,7 @@ class BH_WC_CSP_Condition_Customer {
 	 *
 	 * @since    1.0.0
 	 */
-	protected function define_wcsp_hooks() {
+	protected function define_wcsp_hooks(): void {
 
 		$plugin_wc_csp_conditions = new WC_CSP_Conditions();
 

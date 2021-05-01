@@ -1,11 +1,13 @@
 <?php
 /**
- * Returns a WC_Customer subclass – on of:
+ * Returns a WC_Customer subclass – one of:
  * - the logged in user
  * - the user matching the billing address
  * - a temporary user whose past orders when placed without an account (maybe zero) are searched and compilied.
  *
- * TODO: Need to refresh checkout when billing address is added. i.e. the javascript that reloads when different postage methods/ country is changed, should fire when the email is entered so everything is refreshed and this is invoked
+ * TODO: Need to refresh checkout when billing address is added. i.e. the javascript that reloads when different
+ * postage methods/ country is changed, should fire when the email is entered so everything is refreshed and
+ * this is invoked.
  */
 
 namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
@@ -35,7 +37,14 @@ class WC_CSP_Condition_Customer extends WC_Customer {
 	 */
 	protected $calculated_total_spent;
 
-	public function __construct( $data = 0, $is_session = false ) {
+	/**
+	 * WC_CSP_Condition_Customer constructor.
+	 *
+	 * @param WC_Customer|int $_data
+	 * @param bool            $is_session
+	 * @throws \Exception
+	 */
+	public function __construct( $_data = 0, $is_session = false ) {
 
 		$user_id = get_current_user_id();
 
@@ -101,6 +110,10 @@ class WC_CSP_Condition_Customer extends WC_Customer {
 			$billing_email = $this->parse_billing_email_from_posted_data();
 		}
 
+		if ( is_null( $billing_email ) ) {
+			return null;
+		}
+
 		return is_email( $billing_email ) ? $billing_email : null;
 	}
 
@@ -110,27 +123,27 @@ class WC_CSP_Condition_Customer extends WC_Customer {
 	 * @see WC_Ajax::update_order_review()
 	 * @see assets/js/frontend/checkout.js
 	 *
-	 * @return string|false The billing email address if present.
+	 * @return ?string The billing email address if present.
 	 */
-	protected function parse_billing_email_from_posted_data() {
+	protected function parse_billing_email_from_posted_data(): ?string {
 
 		if ( empty( $_POST ) ) {
-			return false;
+			return null;
 		}
 
 		if ( ! isset( $_POST['post_data'] ) ) {
-			return false;
+			return null;
 		}
 
 		$post_array = array();
 		parse_str( wp_unslash( $_POST['post_data'] ), $post_array );
 
 		if ( empty( $post_array['billing_email'] ) ) {
-			return false;
+			return null;
 		}
 
 		if ( ! is_email( $post_array['billing_email'] ) ) {
-			return false;
+			return null;
 		}
 
 		return $post_array['billing_email'];
@@ -143,7 +156,7 @@ class WC_CSP_Condition_Customer extends WC_Customer {
 	 *
 	 * @param string $email_address
 	 */
-	protected function generate_fake_customer( $email_address ) {
+	protected function generate_fake_customer( $email_address ): void {
 
 		$this->set_billing_email( $email_address );
 
@@ -153,10 +166,10 @@ class WC_CSP_Condition_Customer extends WC_Customer {
 		$cache_expiry_seconds = WEEK_IN_SECONDS;
 
 		/**
-		 * @var array $customer_data_cache {
-		 *      $order_count int
-		 *      $total_spent float
-		 * }
+		 * @var array{
+		 *      order_count: int,
+		 *      total_spent: float
+		 * }  $customer_data_cache
 		 */
 		$customer_data_cache = wp_cache_get( $cache_key );
 
@@ -169,9 +182,11 @@ class WC_CSP_Condition_Customer extends WC_Customer {
 
 			$customer_data_cache = array();
 
-			// Search db
-
-			// Pulls all orders made with the user e-mail as the billing e-mail
+			/**
+			 * Search db for all orders made with the user e-mail as the billing e-mail.
+			 *
+			 * @var WC_Order[] $customer_orders
+			 */
 			$customer_orders = wc_get_orders(
 				array(
 					'status'        => 'wc-completed',
@@ -206,9 +221,5 @@ class WC_CSP_Condition_Customer extends WC_Customer {
 		$this->calculated_total_spent = $customer_data_cache['total_spent'];
 
 	}
-
-	// ‌‌json_encode( $_POST)
-	// {"security":"e0a84ffa98","payment_method":"cod","country":"VG","state":"","postcode":"12345","city":"","address":"","address_2":"","s_country":"VG","s_state":"","s_postcode":"12345","s_city":"","s_address":"","s_address_2":"","has_full_address":"false","post_data":"billing_first_name=&billing_last_name=&billing_company=&billing_country=VG&billing_address_1=&billing_address_2=&billing_city=&billing_state=&billing_postcode=12345&billing_phone=&billing_email=bob%40example.org&order_comments=&payment_method=cod&woocommerce-process-checkout-nonce=7a94e01833&_wp_http_referer=%2Fbh-wc-csp-condition-customer%2Findex.php%2Fcheckout%2F"}
-
 
 }

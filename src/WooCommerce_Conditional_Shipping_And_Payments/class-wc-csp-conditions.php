@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Register the new conditions with WooCommerce Conditional Shipping and Payments.
+ */
 namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
 
 class WC_CSP_Conditions {
@@ -8,6 +10,7 @@ class WC_CSP_Conditions {
 	 * Register the conditions with the existing set of WC CSP conditions.
 	 *
 	 * @hooked woocommerce_csp_conditions
+	 * @see \WC_CSP_Conditions::__construct()
 	 *
 	 * @param string[] $conditions String array of classnames which will be instantiated.
 	 *

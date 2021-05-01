@@ -12,13 +12,14 @@ namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
  * Class I18n_Test
  *
  * @see I18n
+ * @covers \BrianHenryIE\WC_CSP_Condition_Customer\Includes\I18n
  */
 class I18n_Test extends \Codeception\TestCase\WPTestCase {
 
 	/**
 	 * Checks if the filter run by WordPress in the load_plugin_textdomain() function is called.
 	 *
-	 * @see load_plugin_textdomain()
+     * @covers ::load_plugin_textdomain
 	 */
 	public function test_load_plugin_textdomain_function() {
 

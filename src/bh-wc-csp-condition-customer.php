@@ -15,7 +15,7 @@
  * Plugin Name:       Customer Conditions for WooCommerce Conditional Shipping and Payments
  * Plugin URI:        http://github.com/BrianHenryIE/bh-wc-csp-condition-customer/
  * Description:       Use customer is-paying-customer, order count, and total spend as restrictions.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Author:            Brian Henry
  * Author URI:        http://BrianHenryIE.com/
  * License:           GPL-2.0+
@@ -40,7 +40,7 @@ require_once plugin_dir_path( __FILE__ ) . 'autoload.php';
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'BH_WC_CSP_CONDITION_CUSTOMER_VERSION', '1.0.1' );
+define( 'BH_WC_CSP_CONDITION_CUSTOMER_VERSION', '1.1.0' );
 
 /**
  * Begins execution of the plugin.
@@ -51,15 +51,10 @@ define( 'BH_WC_CSP_CONDITION_CUSTOMER_VERSION', '1.0.1' );
  *
  * @since    1.0.0
  */
-function instantiate_bh_wc_csp_condition_customer() {
+function instantiate_bh_wc_csp_condition_customer():void {
 
-	$plugin = new BH_WC_CSP_Condition_Customer();
+	new BH_WC_CSP_Condition_Customer();
 
-	return $plugin;
 }
 
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and frontend-facing site hooks.
- */
-$GLOBALS['bh_wc_csp_condition_customer'] = $bh_wc_csp_condition_customer = instantiate_bh_wc_csp_condition_customer();
+instantiate_bh_wc_csp_condition_customer();

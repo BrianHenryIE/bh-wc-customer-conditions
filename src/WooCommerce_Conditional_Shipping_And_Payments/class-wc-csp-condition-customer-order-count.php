@@ -27,24 +27,13 @@ class WC_CSP_Condition_Customer_Order_Count extends WC_CSP_Condition {
 	 *
 	 * i.e. tells the user how to remedy the restriction. So not hugely relevent here. Left ambiguous.
 	 *
-	 * @param  array $data  Condition field data.
-	 * @param  array $args  Optional arguments passed by restriction.
+	 * @param  array{ value: float, modifier: string } $_data  Condition field data.
+	 * @param  array                                   $_args  Optional arguments passed by restriction.
 	 * @return string|false
 	 */
-	public function get_condition_resolution( $data, $args ) {
+	public function get_condition_resolution( $_data, $_args ) {
 
-		// Empty conditions always return false (not evaluated).
-		if ( ! isset( $data['value'] ) || $data['value'] === '' ) {
-			return false;
-		}
-
-		$message = false;
-
-		if ( $this->modifier_is( $data['modifier'], array( 'min' ) ) ) {
-			$message = __( 'not available', 'bh-wc-csp-condition-customer' );
-		} elseif ( $this->modifier_is( $data['modifier'], array( 'max' ) ) ) {
-			$message = __( 'not available', 'bh-wc-csp-condition-customer' );
-		}
+		$message = __( 'contact support', 'bh-wc-csp-condition-customer' );
 
 		return $message;
 	}
@@ -52,14 +41,14 @@ class WC_CSP_Condition_Customer_Order_Count extends WC_CSP_Condition {
 	/**
 	 * Evaluate if the condition is in effect or not.
 	 *
-	 * @param  array $data  Condition field data.
-	 * @param  array $args  Optional arguments passed by restriction.
+	 * @param  array{ value: float, modifier: string } $data  Condition field data.
+	 * @param  array                                   $_args  Optional arguments passed by restriction.
 	 * @return boolean Return true to restrict a gateway...
 	 */
-	public function check_condition( $data, $args ) {
+	public function check_condition( $data, $_args ): bool {
 
 		// Empty conditions always apply (not evaluated).
-		if ( ! isset( $data['value'] ) || $data['value'] === '' ) {
+		if ( empty( $data['value'] ) ) {
 			return true;
 		}
 
@@ -82,9 +71,9 @@ class WC_CSP_Condition_Customer_Order_Count extends WC_CSP_Condition {
 	 * i.e. make sure it's an int & "min"|"max", then package it for saving.
 	 *
 	 * @param  array $posted_condition_data
-	 * @return array|false
+	 * @return array
 	 */
-	public function process_admin_fields( $posted_condition_data ) {
+	public function process_admin_fields( $posted_condition_data ): ?array {
 
 		$processed_condition_data = array();
 
@@ -94,28 +83,27 @@ class WC_CSP_Condition_Customer_Order_Count extends WC_CSP_Condition {
 			$processed_condition_data['modifier']     = stripslashes( $posted_condition_data['modifier'] );
 
 			if ( $processed_condition_data['value'] < 0 ) {
-				return false;
+				return null;
 			}
 
-			if ( ! in_array( $processed_condition_data['modifier'], array( 'max', 'min' ) ) ) {
-				return false;
+			if ( ! $this->modifier_is( $processed_condition_data['modifier'], array( 'max', 'min' ) ) ) {
+				return null;
 			}
 
 			return $processed_condition_data;
 		}
 
-		return false;
+		return null;
 	}
 
 	/**
-	 * Get quantity conditions content for admin product-level restriction metaboxes.
+	 * Print quantity conditions content for admin product-level restriction metaboxes.
 	 *
-	 * @param  int   $index
-	 * @param  int   $condition_index
-	 * @param  array $condition_data
-	 * @return string
+	 * @param  int                                     $index
+	 * @param  int                                     $condition_index
+	 * @param  array{ value: float, modifier: string } $condition_data
 	 */
-	public function get_admin_fields_html( $index, $condition_index, $condition_data ) {
+	public function get_admin_fields_html( $index, $condition_index, $condition_data ): void {
 
 		$modifier = '';
 		$quantity = '';
@@ -125,7 +113,7 @@ class WC_CSP_Condition_Customer_Order_Count extends WC_CSP_Condition {
 		}
 
 		if ( ! empty( $condition_data['value'] ) ) {
-			$quantity = $condition_data['value'];
+			$quantity = wc_format_decimal( $condition_data['value'] );
 		}
 
 		?>
