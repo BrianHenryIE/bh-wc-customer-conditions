@@ -17,7 +17,7 @@ modules:
             tablePrefix: "%TEST_TABLE_PREFIX%"
             domain: "%TEST_SITE_WP_DOMAIN%"
             adminEmail: "%TEST_SITE_ADMIN_EMAIL%"
-            title: "bh-wc-csp-condition-customer"
+            title: "bh-wc-customer-conditions"
             plugins: ['woocommerce/woocommerce.php',
                       'woocommerce-conditional-shipping-and-payments/woocommerce-conditional-shipping-and-payments.php']
             activatePlugins: ['woocommerce/woocommerce.php',

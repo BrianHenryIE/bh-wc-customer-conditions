@@ -1,15 +1,14 @@
 <?php
 
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
-
-
+namespace BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments;
 
 use WC_Order;
 
 /**
  * Class WC_CSP_Condition_Customer_WPUnit_Test
- * @package BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments
+ *
+ * @package BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments
  * @coversDefaultClass WC_CSP_Condition_Customer
  */
 class WC_CSP_Condition_Customer_WPUnit_Test extends \Codeception\TestCase\WPTestCase {
@@ -33,7 +32,7 @@ class WC_CSP_Condition_Customer_WPUnit_Test extends \Codeception\TestCase\WPTest
 	public function test_registered_customer() {
 
 		$wc_customer = new \WC_Customer();
-		$wc_customer->set_email('me@example.org');
+		$wc_customer->set_email( 'me@example.org' );
 		$wc_customer->save();
 
 		set_current_user( $wc_customer->get_id() );
@@ -70,6 +69,7 @@ class WC_CSP_Condition_Customer_WPUnit_Test extends \Codeception\TestCase\WPTest
 	 * return a fake user with the appropriate values.
 	 *
 	 * TODO: Need to fix the plugin that associates old customer data with new user account -- in the mean time some users who sign up for an account will be shown as no past orders.
+	 *
 	 * @throws \WC_Data_Exception
 	 */
 	public function test_use_past_orders_data() {
@@ -82,23 +82,22 @@ class WC_CSP_Condition_Customer_WPUnit_Test extends \Codeception\TestCase\WPTest
 		$old_order->set_status( 'completed' );
 		$old_order->save();
 
-
 		WC()->init();
 		wc_load_cart();
 		WC()->customer->set_billing_email( $email_address );
 
-		$customer_orders = wc_get_orders(
+		$customer_orders           = wc_get_orders(
 			array(
-//					'status' => 'wc-completed',
-				'billing_email'  => $email_address,
+				// 'status' => 'wc-completed',
+												'billing_email' => $email_address,
 				'limit' => -1, // Assumes most users without accounts have somewhat small numbers of past orders.
 			)
 		);
 		$customer_orders_completed = wc_get_orders(
 			array(
-                'status' => 'wc-completed',
-				'billing_email'  => $email_address,
-				'limit' => -1, // Assumes most users without accounts have somewhat small numbers of past orders.
+				'status'        => 'wc-completed',
+				'billing_email' => $email_address,
+				'limit'         => -1, // Assumes most users without accounts have somewhat small numbers of past orders.
 			)
 		);
 

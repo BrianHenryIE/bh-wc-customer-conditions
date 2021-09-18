@@ -2,7 +2,7 @@
 /**
  * Bootstrap file for integration tests. Since WooCommerce needs initial activation setup.
  *
- * @package           BrianHenryIE\WC_CSP_Condition_Customer
+ * @package           BrianHenryIE\WC_Customer_Conditions
  */
 
 

@@ -1,4 +1,4 @@
-=== BH WC CSP Condition Customer ===
+=== BH WC Customer Conditions ===
 Contributors: BrianHenryIE
 Donate link: http://brianhenryie.com/
 Tags: woocommerce, conditional shipping and payments, customers
@@ -44,7 +44,7 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload `bh-wc-csp-condition-customer.php` to the `/wp-content/plugins/` directory
+1. Upload `bh-wc-customer-condition.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `<?php do_action('plugin_snake_hook'); ?>` in your templates
 

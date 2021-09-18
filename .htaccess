@@ -1,6 +1,6 @@
 # Serve the contents of /wordpress/ from the root URL for the project.
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^.*bh-wc-csp-condition-customer$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^.*bh-wc-customer-conditions$ [NC,OR]
 RewriteCond %{REQUEST_URI} !wordpress/
 RewriteRule (.*) wordpress/$1 [L]
 
@@ -11,7 +11,7 @@ RewriteRule (.*) %{REQUEST_URI}?%1%2 [R=301,L,NE]
 
 # Enable WP_DEBUG.
 php_flag log_errors On
-php_value error_log "wp-content/php_errors.log"
+php_value error_log "wp-content/debug.log"
 
 # Trick WordPress into thinking we're serving REST API over HTTPS.
 SetEnvIf Request_URI api HTTPS=on

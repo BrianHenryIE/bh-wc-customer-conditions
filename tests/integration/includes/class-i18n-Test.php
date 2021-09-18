@@ -2,14 +2,14 @@
 /**
  * Tests for I18n. Tests load_plugin_textdomain.
  *
- * @package BrianHenryIE\WC_CSP_Condition_Customer
+ * @package BrianHenryIE\WC_Customer_Conditions
  * @author  Brian Henry <BrianHenryIE@gmail.com>
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
+namespace BrianHenryIE\WC_Customer_Conditions\Includes;
 
 /**
- * Class BrianHenryIE\WC_CSP_Condition_Customer_Test
+ * Class BrianHenryIE\WC_Customer_Conditions_Test
  *
  * @see I18n
  */
@@ -30,7 +30,7 @@ class I18n_Integration_Test extends \Codeception\TestCase\WPTestCase {
 		$this->assertTrue( file_exists( $plugin_root_dir . '/languages/' ), '/languages/ folder does not exist.' );
 
 		// Seems to fail because there are no translations to load.
-		$this->assertTrue( is_textdomain_loaded( 'bh-wc-csp-condition-customer' ), 'i18n text domain not loaded.' );
+		$this->assertTrue( is_textdomain_loaded( 'bh-wc-customer-conditions' ), 'i18n text domain not loaded.' );
 
 	}
 

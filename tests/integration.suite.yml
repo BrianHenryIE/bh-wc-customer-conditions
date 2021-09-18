@@ -17,11 +17,11 @@ modules:
             tablePrefix: "%TEST_TABLE_PREFIX%"
             domain: "%TEST_SITE_WP_DOMAIN%"
             adminEmail: "%TEST_SITE_ADMIN_EMAIL%"
-            title: "bh-wc-csp-condition-customer"
-            plugins: ['bh-wc-csp-condition-customer/bh-wc-csp-condition-customer.php',
+            title: "bh-wc-customer-conditions"
+            plugins: ['bh-wc-customer-conditions/bh-wc-customer-conditions.php',
                       'woocommerce/woocommerce.php',
                       'woocommerce-conditional-shipping-and-payments/woocommerce-conditional-shipping-and-payments.php']
-            activatePlugins: ['bh-wc-csp-condition-customer/bh-wc-csp-condition-customer.php',
+            activatePlugins: ['bh-wc-customer-conditions/bh-wc-customer-conditions.php',
                               'woocommerce/woocommerce.php',
                               'woocommerce-conditional-shipping-and-payments/woocommerce-conditional-shipping-and-payments.php']
 bootstrap: _bootstrap.php

@@ -3,7 +3,7 @@
  * order count
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
+namespace BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments;
 
 use WC_CSP_Condition;
 
@@ -17,7 +17,7 @@ class WC_CSP_Condition_Customer_Order_Count extends WC_CSP_Condition {
 	 */
 	public function __construct() {
 		$this->id                             = 'customer_order_count';
-		$this->title                          = __( 'Customer Order Count', 'bh-wc-csp-condition-customer' );
+		$this->title                          = __( 'Customer Order Count', 'bh-wc-customer-conditions' );
 		$this->supported_product_restrictions = array( 'payment_gateways', 'shipping_methods', 'shipping_countries' );
 		$this->supported_global_restrictions  = array( 'payment_gateways', 'shipping_methods', 'shipping_countries' );
 	}
@@ -33,7 +33,7 @@ class WC_CSP_Condition_Customer_Order_Count extends WC_CSP_Condition {
 	 */
 	public function get_condition_resolution( $_data, $_args ) {
 
-		$message = __( 'contact support', 'bh-wc-csp-condition-customer' );
+		$message = __( 'contact support', 'bh-wc-customer-conditions' );
 
 		return $message;
 	}
@@ -122,8 +122,8 @@ class WC_CSP_Condition_Customer_Order_Count extends WC_CSP_Condition {
 			<div class="condition_modifier">
 				<div class="sw-enhanced-select">
 					<select name="restriction[<?php echo $index; ?>][conditions][<?php echo $condition_index; ?>][modifier]">
-						<option value="max" <?php selected( $modifier, 'max', true ); ?>><?php echo __( '<', 'bh-wc-csp-condition-customer' ); ?></option>
-						<option value="min" <?php selected( $modifier, 'min', true ); ?>><?php echo __( '>=', 'bh-wc-csp-condition-customer' ); ?></option>
+						<option value="max" <?php selected( $modifier, 'max', true ); ?>><?php echo __( '<', 'bh-wc-customer-conditions' ); ?></option>
+						<option value="min" <?php selected( $modifier, 'min', true ); ?>><?php echo __( '>=', 'bh-wc-customer-conditions' ); ?></option>
 					</select>
 				</div>
 			</div>

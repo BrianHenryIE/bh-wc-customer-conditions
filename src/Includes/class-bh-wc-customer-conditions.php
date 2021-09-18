@@ -8,14 +8,15 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    BrianHenryIE\WC_CSP_Condition_Customer
- * @subpackage BrianHenryIE\WC_CSP_Condition_Customer/includes
+ * @package    BrianHenryIE\WC_Customer_Conditions
+ * @subpackage BrianHenryIE\WC_Customer_Conditions/includes
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
+namespace BrianHenryIE\WC_Customer_Conditions\Includes;
 
-use BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce\Checkout;
-use BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
+use BrianHenryIE\WC_Customer_Conditions\WooCommerce\Checkout;
+use BrianHenryIE\WC_Customer_Conditions\WooCommerce\Coupons;
+use BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 
 /**
  * The core plugin class.
@@ -27,11 +28,11 @@ use BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    BrianHenryIE\WC_CSP_Condition_Customer
- * @subpackage BrianHenryIE\WC_CSP_Condition_Customer/includes
+ * @package    BrianHenryIE\WC_Customer_Conditions
+ * @subpackage BrianHenryIE\WC_Customer_Conditions/includes
  * @author     Brian Henry <BrianHenryIE@gmail.com>
  */
-class BH_WC_CSP_Condition_Customer {
+class BH_WC_Customer_Conditions {
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -48,7 +49,7 @@ class BH_WC_CSP_Condition_Customer {
 
 		$this->define_wcsp_hooks();
 		$this->define_checkout_hooks();
-
+		$this->define_coupon_hooks();
 	}
 
 	/**
@@ -86,5 +87,16 @@ class BH_WC_CSP_Condition_Customer {
 		$checkout = new Checkout();
 
 		add_filter( 'woocommerce_billing_fields', array( $checkout, 'add_update_totals_class_to_billing_email' ), 10, 2 );
+	}
+
+	protected function define_coupon_hooks(): void {
+		$coupons = new Coupons();
+
+		add_filter( 'woocommerce_coupon_data_tabs', array( $coupons, 'register_customer_tab' ) );
+		add_action( 'woocommerce_coupon_data_panels', array( $coupons, 'print_panel' ), 10, 2 );
+		add_action( 'woocommerce_coupon_options_save', array( $coupons, 'save' ), 10, 2 );
+
+		add_action( 'woocommerce_coupon_is_valid', array( $coupons, 'is_coupon_valid' ), 10, 3 );
+
 	}
 }

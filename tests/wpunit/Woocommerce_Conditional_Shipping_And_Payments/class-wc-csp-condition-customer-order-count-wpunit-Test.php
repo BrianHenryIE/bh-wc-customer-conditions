@@ -1,14 +1,15 @@
 <?php
 
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
+namespace BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments;
 
 /**
  *
  * Class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test
- * @package BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments
  *
- * @coversDefaultClass \BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Condition_Customer_Order_Count
+ * @package BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments
+ *
+ * @coversDefaultClass \BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments\WC_CSP_Condition_Customer_Order_Count
  */
 class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test extends \Codeception\TestCase\WPTestCase {
 
@@ -23,7 +24,7 @@ class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test extends \Codeception\Tes
 	public function test_condition_zero_orders_minimum_one() {
 
 		$customer = new \WC_Customer();
-		$customer->set_email('you@exmaple.org');
+		$customer->set_email( 'you@exmaple.org' );
 		$customer->save();
 
 		/**
@@ -37,23 +38,27 @@ class WC_CSP_Condition_Customer_Order_Count_WPUnit_Test extends \Codeception\Tes
 		* @param string $meta_type Type of object metadata is for. Accepts 'post', 'comment', 'term', 'user',
 		*                          or any other object type with an associated meta table.
 		*/
-		add_filter( "get_user_metadata", function( $result, $object_id, $meta_key, $single, $meta_type ) use ($customer) {
+		add_filter(
+			'get_user_metadata',
+			function( $result, $object_id, $meta_key, $single, $meta_type ) use ( $customer ) {
 
-			if ( $customer->get_id() === $object_id && '_order_count' === $meta_key ) {
-				return 0;
-			}
+				if ( $customer->get_id() === $object_id && '_order_count' === $meta_key ) {
+					return 0;
+				}
 
-			return $result;
+				return $result;
 
-		}, 10, 5);
-
+			},
+			10,
+			5
+		);
 
 		$sut = new WC_CSP_Condition_Customer_Order_Count();
 
 		// Disable when the order count is max 1 (or under).
 		$data = array(
 			'modifier' => 'max',
-			'value' => '1'
+			'value'    => '1',
 		);
 
 		$result = $sut->check_condition( $data, null );

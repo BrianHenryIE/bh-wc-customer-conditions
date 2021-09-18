@@ -2,7 +2,7 @@
 /**
  * Register the new conditions with WooCommerce Conditional Shipping and Payments.
  */
-namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
+namespace BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments;
 
 class WC_CSP_Conditions {
 

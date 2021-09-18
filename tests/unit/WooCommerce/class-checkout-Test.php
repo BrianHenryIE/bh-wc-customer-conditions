@@ -1,39 +1,40 @@
 <?php
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce;
+namespace BrianHenryIE\WC_Customer_Conditions\WooCommerce;
 
 /**
  * Class WC_CSP_Conditions_Test
- * @package BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce
- * @coversDefaultClass \BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce\Checkout
+ *
+ * @package BrianHenryIE\WC_Customer_Conditions\WooCommerce
+ * @coversDefaultClass \BrianHenryIE\WC_Customer_Conditions\WooCommerce\Checkout
  */
-class WC_CSP_Conditions_Test extends \Codeception\Test\Unit
-{
+class WC_CSP_Conditions_Test extends \Codeception\Test\Unit {
 
-    /**
-     * @covers ::add_update_totals_class_to_billing_email
-     */
-    public function test_class_is_added_to_billing_email_field() {
 
-        $sut = new Checkout();
+	/**
+	 * @covers ::add_update_totals_class_to_billing_email
+	 */
+	public function test_class_is_added_to_billing_email_field() {
 
-        $address_fields  = array(
-            'billing_email' => array(
-                'class' => array(
-                    'before '
-                )
-            )
-        );
+		$sut = new Checkout();
 
-        $country = '';
+		$address_fields = array(
+			'billing_email' => array(
+				'class' => array(
+					'before ',
+				),
+			),
+		);
 
-        $result = $sut->add_update_totals_class_to_billing_email( $address_fields, $country );
+		$country = '';
 
-//        $css_classes = explode(' ', $result['billing_email']['class']);
-        $css_classes = $result['billing_email']['class'];
+		$result = $sut->add_update_totals_class_to_billing_email( $address_fields, $country );
 
-        $this->assertContains( 'update_totals_on_change', $css_classes );
+		// $css_classes = explode(' ', $result['billing_email']['class']);
+		$css_classes = $result['billing_email']['class'];
 
-    }
+		$this->assertContains( 'update_totals_on_change', $css_classes );
+
+	}
 
 }

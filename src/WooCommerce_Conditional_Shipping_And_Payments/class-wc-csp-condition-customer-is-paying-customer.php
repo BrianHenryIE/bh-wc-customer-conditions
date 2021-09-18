@@ -3,7 +3,7 @@
  * is_paying_customer()
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce_Conditional_Shipping_And_Payments;
+namespace BrianHenryIE\WC_Customer_Conditions\WooCommerce_Conditional_Shipping_And_Payments;
 
 use WC_CSP_Condition;
 
@@ -18,7 +18,7 @@ class WC_CSP_Condition_Customer_Is_Paying_Customer extends WC_CSP_Condition {
 	 */
 	public function __construct() {
 		$this->id                             = 'customer_is_paying_customer';
-		$this->title                          = __( 'Customer Is Paying Customer', 'bh-wc-csp-condition-customer' );
+		$this->title                          = __( 'Customer Is Paying Customer', 'bh-wc-customer-conditions' );
 		$this->supported_product_restrictions = array( 'payment_gateways', 'shipping_methods', 'shipping_countries' );
 		$this->supported_global_restrictions  = array( 'payment_gateways', 'shipping_methods', 'shipping_countries' );
 	}
@@ -32,7 +32,7 @@ class WC_CSP_Condition_Customer_Is_Paying_Customer extends WC_CSP_Condition {
 	 */
 	public function get_condition_resolution( $data, $args ) {
 
-		$message = __( 'contact support', 'bh-wc-csp-condition-customer' );
+		$message = __( 'contact support', 'bh-wc-customer-conditions' );
 
 		return $message;
 	}
@@ -95,8 +95,8 @@ class WC_CSP_Condition_Customer_Is_Paying_Customer extends WC_CSP_Condition {
 			<div class="condition_modifier">
 				<div class="sw-enhanced-select">
 					<select name="restriction[<?php echo $index; ?>][conditions][<?php echo $condition_index; ?>][modifier]">
-						<option value="is" <?php selected( $modifier, 'is', true ); ?>><?php echo __( 'Is', 'bh-wc-csp-condition-customer' ); ?></option>
-						<option value="is-not" <?php selected( $modifier, 'is-not', true ); ?>><?php echo __( 'Is Not', 'bh-wc-csp-condition-customer' ); ?></option>
+						<option value="is" <?php selected( $modifier, 'is', true ); ?>><?php echo __( 'Is', 'bh-wc-customer-conditions' ); ?></option>
+						<option value="is-not" <?php selected( $modifier, 'is-not', true ); ?>><?php echo __( 'Is Not', 'bh-wc-customer-conditions' ); ?></option>
 					</select>
 				</div>
 			</div>

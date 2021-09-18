@@ -1,20 +1,21 @@
 <?php
 /**
- * Tests for BrianHenryIE\WC_CSP_Condition_Customer main setup class. Tests the actions are correctly added.
+ * Tests for BrianHenryIE\WC_Customer_Conditions main setup class. Tests the actions are correctly added.
  *
- * @package BrianHenryIE\WC_CSP_Condition_Customer
+ * @package BrianHenryIE\WC_Customer_Conditions
  * @author  Brian Henry <BrianHenryIE@gmail.com>
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
+namespace BrianHenryIE\WC_Customer_Conditions\Includes;
 
-use BrianHenryIE\WC_CSP_Condition_Customer\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
+use BrianHenryIE\WC_Customer_Conditions\Woocommerce_Conditional_Shipping_And_Payments\WC_CSP_Conditions;
 
 /**
  * Class Develop_Test
+ *
  * @coversNothing
  */
-class BH_WC_CSP_Condition_Customer_Develop_Test extends \Codeception\TestCase\WPTestCase {
+class BH_WC_Customer_Conditions_Develop_Test extends \Codeception\TestCase\WPTestCase {
 
 	/**
 	 * Verify filter to call the add_condition function is added.

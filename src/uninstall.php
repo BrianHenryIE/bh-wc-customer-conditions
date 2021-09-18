@@ -21,7 +21,7 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    BrianHenryIE\WC_CSP_Condition_Customer
+ * @package    BrianHenryIE\WC_Customer_Conditions
  */
 
 // If uninstall not called from WordPress, then exit.

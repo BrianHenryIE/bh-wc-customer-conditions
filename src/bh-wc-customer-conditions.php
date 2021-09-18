@@ -9,24 +9,24 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           BrianHenryIE\WC_CSP_Condition_Customer
+ * @package           BrianHenryIE\WC_Customer_Conditions
  *
  * @wordpress-plugin
- * Plugin Name:       Customer Conditions for WooCommerce Conditional Shipping and Payments
- * Plugin URI:        http://github.com/BrianHenryIE/bh-wc-csp-condition-customer/
- * Description:       Use customer is-paying-customer, order count, and total spend as restrictions.
- * Version:           1.1.0
+ * Plugin Name:       Customer Conditions
+ * Plugin URI:        http://github.com/BrianHenryIE/bh-wc-customer-condition/
+ * Description:       Use customer is-paying-customer, order count, and total spend as restrictions in coupons and in WooCommerce Conditional Shipping and Payments.
+ * Version:           1.3.1
  * Author:            Brian Henry
  * Author URI:        http://BrianHenryIE.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       bh-wc-csp-condition-customer
+ * Text Domain:       bh-wc-customer-condition
  * Domain Path:       /languages
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer;
+namespace BrianHenryIE\WC_Customer_Conditions;
 
-use BrianHenryIE\WC_CSP_Condition_Customer\Includes\BH_WC_CSP_Condition_Customer;
+use BrianHenryIE\WC_Customer_Conditions\Includes\BH_WC_Customer_Conditions;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -40,7 +40,7 @@ require_once plugin_dir_path( __FILE__ ) . 'autoload.php';
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'BH_WC_CSP_CONDITION_CUSTOMER_VERSION', '1.1.0' );
+define( 'BH_WC_CUSTOMER_CONDITIONS_VERSION', '1.3.1' );
 
 /**
  * Begins execution of the plugin.
@@ -51,10 +51,10 @@ define( 'BH_WC_CSP_CONDITION_CUSTOMER_VERSION', '1.1.0' );
  *
  * @since    1.0.0
  */
-function instantiate_bh_wc_csp_condition_customer():void {
+function instantiate_bh_wc_customer_conditions():void {
 
-	new BH_WC_CSP_Condition_Customer();
+	new BH_WC_Customer_Conditions();
 
 }
 
-instantiate_bh_wc_csp_condition_customer();
+instantiate_bh_wc_customer_conditions();

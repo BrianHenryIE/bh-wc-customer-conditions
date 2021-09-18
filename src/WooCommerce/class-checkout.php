@@ -9,7 +9,7 @@
  * Maybe this class should be called 'Countries'.
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\WooCommerce;
+namespace BrianHenryIE\WC_Customer_Conditions\WooCommerce;
 
 class Checkout {
 

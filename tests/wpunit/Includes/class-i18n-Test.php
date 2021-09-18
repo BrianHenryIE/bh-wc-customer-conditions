@@ -2,24 +2,24 @@
 /**
  * Tests for I18n. Tests load_plugin_textdomain.
  *
- * @package BrianHenryIE\WC_CSP_Condition_Customer
+ * @package BrianHenryIE\WC_Customer_Conditions
  * @author  Brian Henry <BrianHenryIE@gmail.com>
  */
 
-namespace BrianHenryIE\WC_CSP_Condition_Customer\Includes;
+namespace BrianHenryIE\WC_Customer_Conditions\Includes;
 
 /**
  * Class I18n_Test
  *
  * @see I18n
- * @covers \BrianHenryIE\WC_CSP_Condition_Customer\Includes\I18n
+ * @covers \BrianHenryIE\WC_Customer_Conditions\Includes\I18n
  */
 class I18n_Test extends \Codeception\TestCase\WPTestCase {
 
 	/**
 	 * Checks if the filter run by WordPress in the load_plugin_textdomain() function is called.
 	 *
-     * @covers ::load_plugin_textdomain
+	 * @covers ::load_plugin_textdomain
 	 */
 	public function test_load_plugin_textdomain_function() {
 
@@ -41,7 +41,7 @@ class I18n_Test extends \Codeception\TestCase\WPTestCase {
 		$i18n->load_plugin_textdomain();
 
 		$this->assertTrue( $called, 'plugin_locale filter not called within load_plugin_textdomain() suggesting it has not been set by the plugin.' );
-		$this->assertEquals( 'bh-wc-csp-condition-customer', $actual_domain );
+		$this->assertEquals( 'bh-wc-customer-conditions', $actual_domain );
 
 	}
 }
